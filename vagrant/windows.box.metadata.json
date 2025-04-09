@@ -1,0 +1,14 @@
+{
+  "name": "nicerloop/windows",
+  "versions": [
+    {
+      "version": "10.0.26100.1742",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "./packer_windows_virtualbox_amd64.box"
+        }
+      ]
+    }
+  ]
+}

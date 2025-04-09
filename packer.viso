@@ -1,0 +1,5 @@
+--iprt-iso-maker-file-marker=12345678-90AB-CDEF-1234-567890ABCDEF
+--volume-id=packer
+./windows/autounattend.xml
+./windows/autounattend.ps1
+./windows/install-sshd.ps1
