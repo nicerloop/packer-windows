@@ -11,14 +11,12 @@ Uses:
 - Oracle [VirtualBox](https://www.virtualbox.org)
 - Microsoft [Windows 11 Enterprise](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-11-enterprise)
 - Microsoft [Windows 11 Language and Optional Features](https://learn.microsoft.com/en-us/azure/virtual-desktop/windows-11-language-packs)
-- POSIX [shell and utilities](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap01.html#tag_18)
 - [x86-64](https://en.wikipedia.org/wiki/X86-64) build host
 
 ## Tasks
 
 ### build
 
-Env: PACKER_LOG=1
 ```sh
 packer init .
 packer build --force .
