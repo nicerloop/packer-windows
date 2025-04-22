@@ -15,6 +15,26 @@ packer {
   }
 }
 
+variable "iso_url" {
+  type    = string
+  default = "https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
+}
+
+variable "iso_checksum" {
+  type    = string
+  default = "sha256:755A90D43E826A74B9E1932A34788B898E028272439B777E5593DEE8D53622AE"
+}
+
+variable "features_iso_url" {
+  type    = string
+  default = "https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso"
+}
+
+variable "features_iso_checksum" {
+  type    = string
+  default = "sha256:fdbd87c2cd69ba84ef2ea69d5b468938355d0d634b7de7a1988480f94713a738"
+}
+
 source "virtualbox-iso" "windows" {
   vm_name                = "packer-windows"
   headless               = true
@@ -27,11 +47,11 @@ source "virtualbox-iso" "windows" {
   hard_drive_interface   = "sata"
   disk_size              = 32768
   iso_interface          = "sata"
-  iso_url                = "https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
-  iso_checksum           = "sha256:755A90D43E826A74B9E1932A34788B898E028272439B777E5593DEE8D53622AE"
+  iso_url                = "${var.iso_url}"
+  iso_checksum           = "${var.iso_checksum}"
   guest_additions_mode   = "attach"
-  guest_additions_url    = "https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso"
-  guest_additions_sha256 = "sha256:fdbd87c2cd69ba84ef2ea69d5b468938355d0d634b7de7a1988480f94713a738"
+  guest_additions_url    = "${var.features_iso_url}"
+  guest_additions_sha256 = "${var.features_iso_checksum}"
   # cd_files               = ["./windows/*"]
   vboxmanage = [
     ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "0", "--type", "dvddrive", "--medium", "./packer.viso"],
