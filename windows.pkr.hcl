@@ -45,7 +45,7 @@ source "virtualbox-iso" "windows" {
   gfx_vram_size          = 128
   firmware               = "efi"
   hard_drive_interface   = "sata"
-  disk_size              = 32768
+  disk_size              = 262144
   iso_interface          = "sata"
   iso_url                = "${var.iso_url}"
   iso_checksum           = "${var.iso_checksum}"
@@ -78,12 +78,8 @@ build {
   ]
   provisioner "powershell" {
     scripts = [
-      "./vagrant/configure-sshd.ps1"
-    ]
-  }
-  provisioner "powershell" {
-    scripts = [
-      "./virtualbox/install-guestdrivers.ps1"
+      "./vagrant/configure-sshd.ps1",
+      "./virtualbox/install-guestdrivers.ps1",
     ]
   }
   post-processor "vagrant" {
