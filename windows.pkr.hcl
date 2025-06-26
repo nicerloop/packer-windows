@@ -79,6 +79,7 @@ build {
   provisioner "powershell" {
     scripts = [
       "./vagrant/configure-sshd.ps1",
+      "./windows/enable-rdp.ps1",
       "./virtualbox/install-guestdrivers.ps1",
     ]
   }
