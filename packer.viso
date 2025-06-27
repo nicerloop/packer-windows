@@ -2,4 +2,6 @@
 --volume-id=packer
 ./windows/autounattend.xml
 ./windows/autounattend.ps1
+./windows/disable-windowsupdate.ps1
+./windows/enable-networkadapters.ps1
 ./windows/install-sshd.ps1
