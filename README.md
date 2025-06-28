@@ -18,6 +18,7 @@ Uses:
 ### build
 
 ```sh
+VBoxManage unregistervm packer-windows --delete || true
 packer init .
 packer build --force .
 ```
@@ -32,6 +33,7 @@ vagrant box add --force ./vagrant/windows.box.metadata.json
 
 ```sh
 vagrant init --force --minimal nicerloop/windows
+vagrant destroy --force || true
 vagrant up
 ```
 
