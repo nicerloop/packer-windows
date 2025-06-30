@@ -1,4 +1,5 @@
 # https://git-scm.com/docs/gitignore
+/packer_cache/
 /output-windows/
 *.box
 /.vagrant/
